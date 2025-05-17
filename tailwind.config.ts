@@ -1,15 +1,13 @@
-
 import type { Config } from "tailwindcss";
 
-const config = {
+const config: Config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
-  prefix: "",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -20,6 +18,10 @@ const config = {
     },
     extend: {
       colors: {
+        "hotel-blue": "#1A365D",
+        "hotel-gold": "#D4AF37",
+        "hotel-light": "#F5F5F5",
+        "hotel-dark": "#333333",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -63,12 +65,6 @@ const config = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        hotel: {
-          blue: "#1A365D",
-          gold: "#D4AF37",
-          light: "#F5F5F5",
-          dark: "#333333"
-        }
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -85,23 +81,18 @@ const config = {
           to: { height: "0" },
         },
         fadeIn: {
-          "0%": { opacity: "0", transform: "translateY(10px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" }
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
-        slideIn: {
-          "0%": { transform: "translateX(-20px)", opacity: "0" },
-          "100%": { transform: "translateX(0)", opacity: "1" }
-        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fadeIn": "fadeIn 0.5s ease-out forwards",
-        "slideIn": "slideIn 0.5s ease-out forwards"
+        fadeIn: "fadeIn 0.3s ease-in-out",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+};
 
 export default config;
